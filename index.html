@@ -3,44 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>تطبيق كلمات</title>
-<meta name="description" content="حمّل تطبيق كلمات مباشرة على هاتفك">
-<meta property="og:title" content="تطبيق كلمات">
-<meta property="og:description" content="حمّل تطبيق كلمات مباشرة على هاتفك">
-<meta property="og:image" content="YOUR_SITE_URL/icon.png">
-<meta property="og:url" content="YOUR_SITE_URL/">
+<title>تثبيت تطبيق كلمات</title>
+<meta name="description" content="حمّل تطبيق كلمات وثبّته على هاتفك">
+<meta property="og:title" content="تثبيت تطبيق كلمات">
+<meta property="og:description" content="حمّل تطبيق كلمات وثبّته على هاتفك">
+<meta property="og:image" content="https://almsharbash.github.io/kalimat-download/icon.png">
+<meta property="og:url" content="https://almsharbash.github.io/kalimat-download/">
 <link rel="icon" href="icon.png">
 <style>
-  body { margin:0; font-family: system-ui, sans-serif; background:#fff; color:#222;
-         display:flex; align-items:center; justify-content:center; min-height:100vh; padding:20px; box-sizing:border-box; }
-  .card { text-align:center; max-width:320px; width:100%; }
-  img { width:96px; height:96px; border-radius:22px; }
-  h1 { font-size:22px; margin:12px 0 4px; font-weight:500; }
-  p { font-size:14px; color:#666; margin:6px 0 18px; line-height:1.7; }
-  a.btn { display:block; background:#2d6cdf; color:#fff; text-decoration:none;
-          padding:14px; border-radius:12px; font-size:16px; }
-  .note { font-size:12px; color:#888; margin-top:14px; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; background: #f5f7fb;
+    font-family: system-ui, sans-serif; color: #1a1a1a;
+    display: flex; align-items: center; justify-content: center; padding: 20px;
+  }
+  .card {
+    background: #fff; border-radius: 20px; padding: 28px 22px;
+    max-width: 340px; width: 100%; text-align: center;
+    border: 0.5px solid #e2e6ef;
+  }
+  .icon { width: 96px; height: 96px; border-radius: 22px; display: block; margin: 0 auto; }
+  h1 { font-size: 22px; font-weight: 500; margin: 14px 0 6px; }
+  .desc { font-size: 14px; color: #666; line-height: 1.7; margin: 0 0 22px; }
+  .install-btn {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    background: #2d6cdf; color: #fff; text-decoration: none;
+    padding: 16px; border-radius: 14px; font-size: 17px; font-weight: 500;
+    transition: background 0.2s;
+  }
+  .install-btn:hover, .install-btn:active { background: #2458b8; }
+  .install-btn svg { width: 22px; height: 22px; }
+  .meta { font-size: 12px; color: #888; margin-top: 12px; }
+  .steps { text-align: right; font-size: 13px; color: #555; margin-top: 22px; line-height: 1.9; padding-inline-start: 18px; }
+  .hidden { display: none; }
 </style>
 </head>
 <body>
 <div class="card">
-  <img src="icon.png" alt="كلمات">
+  <img class="icon" src="icon.png" alt="كلمات">
   <h1>تطبيق كلمات</h1>
+
   <div id="android">
-    <p>اضغط الزر لتحميل التطبيق وتثبيته مباشرة.</p>
-    <a class="btn" href="kalimat-v1.0.1.apk" download>تحميل التطبيق</a>
-    <p class="note">قبل التثبيت فعّل "التثبيت من مصادر غير معروفة" في إعدادات الهاتف.</p>
+    <p class="desc">حمّل التطبيق وثبّته مباشرة على هاتفك.</p>
+    <a class="install-btn" href="https://drive.google.com/uc?export=download&id=1lxaNREWzo8AyGQUkMDD-X2XSPuwrc5y7">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/>
+      </svg>
+      تحميل وتثبيت
+    </a>
+    <p class="meta">الحجم حوالي 2.2 ميجابايت</p>
+    <ol class="steps">
+      <li>اضغط زر التحميل أعلاه.</li>
+      <li>افتح الملف من الإشعارات أو مدير الملفات.</li>
+      <li>إن طلب الهاتف، فعّل "التثبيت من مصادر غير معروفة" ثم ثبّت.</li>
+    </ol>
   </div>
-  <div id="other" hidden>
-    <p>التطبيق متوفر حالياً لأجهزة أندرويد. افتح هذه الصفحة من هاتف أندرويد للتحميل.</p>
-    <a class="btn" href="YOUR_SITE_URL/">فتح الموقع</a>
+
+  <div id="other" class="hidden">
+    <p class="desc">التطبيق متوفر حالياً لأجهزة أندرويد. افتح هذه الصفحة من هاتف أندرويد للتحميل.</p>
   </div>
 </div>
+
 <script>
   if (!/android/i.test(navigator.userAgent)) {
-    document.getElementById('android').hidden = true;
-    document.getElementById('other').hidden = false;
+    document.getElementById('android').classList.add('hidden');
+    document.getElementById('other').classList.remove('hidden');
   }
 </script>
 </body>
-</html>
+  </html>
